@@ -1,0 +1,67 @@
+{
+  "root": true,
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "eslint:all",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    // these are the rules disabled intentionally
+    "no-magic-numbers": "off",
+    "one-var": "off",
+    "sort-keys": "off",
+    "prefer-exponentiation-operator": "off",
+    "prefer-destructuring": "off",
+    "no-plusplus": "off",
+    "no-ternary": "off",
+    "sort-vars": "off",
+    "no-continue": "off",
+    "multiline-comment-style": "off",
+    "no-lonely-if": "off",
+    "no-inline-comments": "off",
+    "line-comment-position": "off",
+    "capitalized-comments": "off",
+    "complexity": [
+      "error",
+      50
+    ],
+    "max-lines-per-function": [
+      "error",
+      300
+    ],
+    "max-statements": [
+      "error",
+      100
+    ],
+    "max-lines": [
+      "error",
+      5000
+    ],
+    "max-params": [
+      "error",
+      10
+    ],
+    "max-depth": [
+      "error",
+      5
+    ],
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "lines-between-class-members": "off",
+    "require-atomic-updates": "off"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    "coverage/": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "js/ts.implicitProjectConfig.checkJs": false,
+  "debug.javascript.terminalOptions": {
+    "skipFiles": ["<node_internals>/**"]
+  },
+  "files.associations": {
+    "**/*.config": "plaintext"
+  },
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.format.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

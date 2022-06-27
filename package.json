@@ -22,7 +22,6 @@
   "workspaces": [
     "packages/injector",
     "packages/storage",
-    "packages/api",
-    "packages/validator"
+    "packages/api"
   ]
 }

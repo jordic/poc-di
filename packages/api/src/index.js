@@ -1,16 +1,17 @@
 const express = require("express");
 const { StorageService } = require("storage");
-const Serializer = require("validator");
+const joi = require("joi");
 
 const app = express.Router();
 
-Object.defineProperty(app, "db", {
-  get: () => StorageService.resolve(),
+const SnippetSchema = joi.object({
+  name: joi.string().required(),
+  language: joi.string().required(),
+  value: joi.string().required(),
 });
 
-Object.defineProperty(app, "validator", {
-  get: () => (data) =>
-    new (Serializer.resolve())().deserialize("snippet", data),
+Object.defineProperty(app, "db", {
+  get: () => StorageService.resolve(),
 });
 
 app.get("/", async (req, res) => {
@@ -19,7 +20,7 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-  const { value, error } = app.validator(req.body);
+  const { value, error } = SnippetSchema.validate(req.body);
   if (error) {
     return res.status(412).json(error);
   }
@@ -43,7 +44,12 @@ app.patch("/:id", async (req, res) => {
     return res.status(404);
   }
   let { name, language, value } = snippet;
-  const validated = app.validator({ name, language, value, ...req.body });
+  const validated = SnippetSchema.validate({
+    name,
+    language,
+    value,
+    ...req.body,
+  });
   if (validated.error) {
     return res.status(412).json(validated.error);
   }
